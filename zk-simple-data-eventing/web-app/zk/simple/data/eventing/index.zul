@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page zscriptLanguage="GroovyGrails"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://www.zkoss.org/2005/zk/annotation"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <window apply="zk.simple.data.eventing.indexComposer" id="mainwin">
+        <a:bind model="composer.getPersons" selectedItem="selected"/>
+        <listbox rows="10" model="@{mainwin$composer.getPersons}" id="lstSample">
+            <listhead>
+                <listheader label="First Name" width="100px" />
+                <listheader label="Last Name" width="100px" />
+            </listhead>
+            <a:bind _var="person"/>
+            <listitem>
+                <a:bind label="person.firstName"/>
+                <listcell/>
+                <a:bind label="person.lastName"/>
+                <listcell/>
+            </listitem>
+        </listbox>
+
+        <!-- show the detail of the selected person -->
+        <grid>
+            <rows>
+                <row>First Name:
+                    <a:bind value="selected.firstName"/>
+                    <textbox/>
+                </row>
+                <row>Last Name:
+                    <a:bind value="selected.lastName"/>
+                    <textbox/>
+                </row>
+                <row>Full Name:
+                    <a:bind value="selected.fullName"/>
+                    <label/>
+                </row>
+            </rows>
+        </grid>
+
+    </window>
+</zk>
