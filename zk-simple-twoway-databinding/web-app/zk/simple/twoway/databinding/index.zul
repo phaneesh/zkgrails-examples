@@ -9,11 +9,11 @@
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
     <window apply="zk.simple.twoway.databinding.indexComposer">
-        <a:bind model="persons" selectedItem="selected"/>
-        <listbox rows="5" id="lstSample">
+        <a:bind model="composer.getPersons" selectedItem="selected"/>
+        <listbox rows="10" model="@{mainwin$composer.getPersons}" id="lstSample">
             <listhead>
-                <listheader label="First Name" width="100px"/>
-                <listheader label="Last Name" width="100px"/>
+                <listheader label="First Name" width="100px" />
+                <listheader label="Last Name" width="100px" />
             </listhead>
             <a:bind _var="person"/>
             <listitem>
@@ -21,10 +21,9 @@
                 <listcell/>
                 <a:bind label="person.lastName"/>
                 <listcell/>
-                <a:bind label="person.fullName"/>
-                <listcell/>
             </listitem>
         </listbox>
+
         <!-- show the detail of the selected person -->
         <grid>
             <rows>
@@ -35,6 +34,10 @@
                 <row>Last Name:
                     <a:bind value="selected.lastName"/>
                     <textbox/>
+                </row>
+                <row>Full Name:
+                    <a:bind value="selected.fullName"/>
+                    <label/>
                 </row>
             </rows>
         </grid>
