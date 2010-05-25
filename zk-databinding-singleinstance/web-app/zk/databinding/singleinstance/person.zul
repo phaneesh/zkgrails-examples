@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page zscriptLanguage="GroovyGrails"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://www.zkoss.org/2005/zk/annotation"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="zk.databinding.singleinstance.personComposer" id="mainwin">
+        <hbox>
+            Person Id :
+            <textbox id="personId"/>
+        </hbox>
+        <grid fixedLayout="true" width="450px">
+            <rows>
+                <row>
+                    First Name :
+                    <textbox id="firstName" width="150px" value="@{mainwin$composer.person.firstName, save-when='self.onChange',  load-when='personId.onChange'}"/>
+                </row>
+                <row>
+                    Last Name :
+                    <textbox id="lastName" width="150px" value="@{mainwin$composer.person.lastName, save-when='self.onChange', load-when='personId.onChange'}"/>
+                </row>
+            </rows>
+        </grid>
+        <separator/>
+        <hbox>
+            <button id="savePerson" label="Save"/>
+        </hbox>
+    </window>
+
+</zk>
