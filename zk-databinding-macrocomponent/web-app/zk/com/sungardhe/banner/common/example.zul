@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid>
+<rows>
+  <row>First Name:
+    <textbox id="firstName" forward="onChange=onFirstNameChange"/>
+  </row>
+  <row>Last Name:
+    <textbox id="lastName" forward="onChange=onLastNameChange"/>
+  </row>
+  <row>Full Name: <label id="fullName"/></row>
+</rows>
+</grid>

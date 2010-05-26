@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+<?component name="example" macro-uri="/zk/com/sungardhe/banner/common/example.zul" class="com.sungardhe.banner.ui.zk.common.Example"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?page zscriptLanguage="GroovyGrails"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://www.zkoss.org/2005/zk/annotation"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window apply="zk.databinding.macrocomponent.personComposer" id="mainwin">
+        <example
+            firstName="@{mainwin$composer.person.firstName,save-when='self.onFirstNameChange',access=both}"
+            lastName="@{mainwin$composer.person.lastName,save-when='self.onLastNameChange',access=both}" />
+    </window>
+</zk>
