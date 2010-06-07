@@ -11,7 +11,7 @@
     <window apply="zk.tips.tricks.indexComposer">
         <window apply="zk.tips.tricks.otherComposer"/>
         <window apply="zk.tips.tricks.someOtherComposer"/>        
-        <textbox id="composers" value="" width="200" height="300"/>
+        <textbox id="composers" value="" width="600px" height="300px" rows="10"/>
         <button id="getComposers" label="Get Composers"/>
     </window>
 
