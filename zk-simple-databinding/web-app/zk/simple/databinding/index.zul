@@ -5,7 +5,7 @@
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:h="http://www.w3.org/1999/xhtml"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://www.zkoss.org/2005/zk/annotation"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
     <window apply="zk.simple.databinding.indexComposer" id="mainwin">
@@ -22,9 +22,24 @@
                     </listcell>
                     <listcell>
                         <textbox value="@{person.lastName}" />
-                    </listcell>                    
+                    </listcell>
                     <listcell label="@{person.fullName}" />
                 </listitem>
             </listbox>
+            <separator />
+            <label>Grid</label>
+            <separator />
+            <grid model="@{mainwin$composer.getPersons}" id="grdSample">
+                <rows>
+                    <row self="@{each='person'}" value="@{person}">
+                        <a:bind value="person.firstName"/>
+                        <label/>
+                        <a:bind value="person.lastName"/>
+                        <label/>
+                        <a:bind value="person.fullName"/>
+                        <label/>
+                    </row>
+                </rows>
+            </grid>
     </window>
 </zk>
